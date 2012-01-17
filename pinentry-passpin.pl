@@ -122,7 +122,7 @@ END_HELP
 
 		## Remove extraneous data from the ciphertext
 
-			$ciphertext =~ s/.*-----BEGIN PGP MESSAGE-----(.+)-----END PGP MESSAGE-----.*/$1/sm;
+			$ciphertext =~ s/.*-----BEGIN PGP MESSAGE-----.*?\n\n(.+)-----END PGP MESSAGE-----.*/$1/sm;
 			$ciphertext =~ s/[\r\n]+//gsm;
 
 		## Add config
