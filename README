@@ -1,33 +1,3 @@
-This is a pinentry application for use with GnuPG. Under normal circumstances,
-when signing or decrypting with GnuPG, gpg-agent will spawn a pinentry
-process to ask for the password to be able to access your keys. This pinentry
-application will wrap around any other pinentry application, but instead of
-entering your GnuPG password, you will enter a different password, which will
-decrypt the real password.
+This project has moved to Gitlab:
 
-The point of this is to help protect against observation attacks like shoulder
-surfing or key logging. This application comes into its own when used in
-combination with a smartcard. If somebody views you entering your smartcard
-pin, all they need to do is steal your smartcard and use it in another
-machine. However, they wont be able to use it in a different machine if the
-password they saw you entering is only one which decrypts the real password
-which is stored on your machine. 
-
-Usage:
-
-  Stick "pinentry-program /path/to/pinentry-passpin.pl" in ~/.gnupg/gpg-agent.conf
-
-  Then:
-
-  mike@hostname:~$ pinentry-passpin.pl --add-key
-  Please enter the existing passphrase. The one you currently use to decrypt you key or access your smart card:
-  > MY_GNUPG_PASSPHRASE
-  Please enter the new password which you would like to enter into pinentry instead of the real password:
-  > MY_WRAPPER_PASSPHRASE
-  Key added to /home/mike/.pinentry-passpin
-  mike@hostname:~$ 
-
-Now, when pinentry pops up asking for my password, instead of entering
-"MY_GNUPG_PASSPHRASE", I can also enter "MY_WRAPPER_PASSPHRASE" for the same
-effect. "gpg --symmetric" is used for the encryption. Run the command with
-"--help" for more instructions.
+https://gitlab.com/mikecardwell/Pinentry-PassPin
